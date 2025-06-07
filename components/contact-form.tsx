@@ -14,21 +14,54 @@ import { useToast } from "@/hooks/use-toast"
 export function ContactForm() {
   const { toast } = useToast()
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setForm({ ...form, [e.target.name]: e.target.value })
+  }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500))
-
-    toast({
-      title: "Message sent!",
-      description: "Thanks for reaching out. I'll get back to you soon.",
-    })
-
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          message: `${form.subject}\n\n${form.message}`,
+        }),
+      })
+      if (res.ok) {
+        toast({
+          title: 'Message Sent!',
+          description: "Thank you for reaching out! I'll get back to you soon.",
+          className:
+            'bg-gradient-to-r from-purple-600 to-pink-500 text-white shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:slide-in-from-top-full data-[state=closed]:fade-out-80',
+          duration: 5000,
+        })
+        setForm({ name: '', email: '', subject: '', message: '' })
+      } else {
+        toast({
+          title: 'Error',
+          description: 'Failed to send message. Please try again later.',
+          className:
+            'bg-gradient-to-r from-red-600 to-pink-500 text-white shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:slide-in-from-top-full data-[state=closed]:fade-out-80',
+          duration: 5000,
+        })
+      }
+    } catch (err) {
+      toast({
+        title: 'Error',
+        description: 'Failed to send message. Please try again later.',
+        className:
+          'bg-gradient-to-r from-red-600 to-pink-500 text-white shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:slide-in-from-top-full data-[state=closed]:fade-out-80',
+        duration: 5000,
+      })
+    }
     setIsSubmitting(false)
-    e.currentTarget.reset()
   }
 
   return (
@@ -47,6 +80,9 @@ export function ContactForm() {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
               <Input
+                name="name"
+                value={form.name}
+                onChange={handleChange}
                 placeholder="Your Name"
                 required
                 className="bg-zinc-900/50 border-zinc-700 focus:border-purple-500 focus:ring-purple-500/20"
@@ -54,7 +90,10 @@ export function ContactForm() {
             </div>
             <div className="space-y-2">
               <Input
+                name="email"
                 type="email"
+                value={form.email}
+                onChange={handleChange}
                 placeholder="Your Email"
                 required
                 className="bg-zinc-900/50 border-zinc-700 focus:border-purple-500 focus:ring-purple-500/20"
@@ -62,6 +101,9 @@ export function ContactForm() {
             </div>
             <div className="space-y-2">
               <Input
+                name="subject"
+                value={form.subject}
+                onChange={handleChange}
                 placeholder="Subject"
                 required
                 className="bg-zinc-900/50 border-zinc-700 focus:border-purple-500 focus:ring-purple-500/20"
@@ -69,6 +111,9 @@ export function ContactForm() {
             </div>
             <div className="space-y-2">
               <Textarea
+                name="message"
+                value={form.message}
+                onChange={handleChange}
                 placeholder="Your Message"
                 rows={5}
                 required
