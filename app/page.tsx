@@ -52,12 +52,14 @@ export default function Portfolio() {
                 </span>
                 <span className="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
               </Button>
-              <Button
-                variant="outline"
-                className="border-zinc-700 text-zinc-300 hover:text-white hover:border-zinc-500"
-              >
-                Contact Me
-              </Button>
+              <a href="/ShoebResume.pdf" download className="inline-block">
+                <Button
+                  variant="outline"
+                  className="border-zinc-700 text-zinc-300 hover:text-white hover:border-zinc-500"
+                >
+                  Download Resume
+                </Button>
+              </a>
             </div>
             <div className="flex gap-4 pt-4">
               <Link href="https://github.com/SHOEB091" target="_blank" rel="noopener noreferrer">
