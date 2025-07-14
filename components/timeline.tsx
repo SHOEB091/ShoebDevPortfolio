@@ -5,9 +5,9 @@ import { useMobile } from "@/hooks/use-mobile"
 
 const experiences = [
   {
-    title: "Software Engineer",
+    title: "Associate Software Engineer",
     company: "Bridge Group of Solutions.",
-    period: "2025 - Present",
+    period: "JAN 2025 - JULY 2025",
     description:
       "Build Scalable projects and work with team in building a SaaS platform. Implemented new features, improved performance, and mentored Interns. Worked on various Tech Stack like ASP.NET , Android Development , MERN STACK from optimization to Scalability , Security and Depoloymnet covering every single edge case",
   },

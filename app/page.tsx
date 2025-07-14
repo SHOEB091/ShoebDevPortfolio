@@ -181,7 +181,9 @@ export default function Portfolio() {
                 </div>
 
                 <div className="mt-8">
-                  <Button className="bg-zinc-800 hover:bg-zinc-700 text-white">Download Resume</Button>
+                  <a href="/ShoebResume.pdf" download>
+                    <Button className="bg-zinc-800 hover:bg-zinc-700 text-white">Download Resume</Button>
+                  </a>
                 </div>
               </GlassmorphicCard>
             </div>
@@ -213,13 +215,13 @@ export default function Portfolio() {
             <SkillBadge name="Docker" level={75} />
             <SkillBadge name="Git" level={85} />
             <SkillBadge name="Kubernetese" level={85} />
-            <SkillBadge name="Android Development" level={73} />
+            <SkillBadge name="Android Development" level={61} />
             <SkillBadge name="C" level={70} />
             <SkillBadge name="C#" level={75} />
             <SkillBadge name="Python" level={60} />
             <SkillBadge name="Java" level={80} />
-            <SkillBadge name="OOPS" level={80} />
-            <SkillBadge name="CI/CD" level={60} />
+            <SkillBadge name="OOP" level={80} />
+            <SkillBadge name="CI/CD" level={68} />
             <SkillBadge name="DevOps" level={70} />
             <SkillBadge name="Testing" level={70} />
             <SkillBadge name="Security" level={82} />
@@ -280,9 +282,9 @@ uptime.
             <ProjectCard
               title="Full Stack ChatPDF "
               description="A application that solve the Information fetching form the ChatPDF"
-              tags={["NEXT.js", "GenAI", "Tailwindcss", "TypeScript", "AWS", "RAG"]}
-              image="/placeholder.svg?height=400&width=600"
-              demoUrl="http://lcsfrontendbucket.s3-website-us-east-1.amazonaws.com"
+              tags={["NEXT.js", "GenAI", "TypeScript", "AWS", "RAG", "LangChain", "Pinecone", "Drizzle ORM"]}
+              image="/ChatPdf.png"
+              demoUrl="https://sichatpdf.vercel.app"
               repoUrl="https://github.com/SHOEB091/AI-ChatPDF.git"
             />
             <ProjectCard
