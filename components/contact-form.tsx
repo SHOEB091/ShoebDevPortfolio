@@ -39,7 +39,7 @@ export function ContactForm() {
           title: 'Message Sent!',
           description: "Thank you for reaching out! I'll get back to you soon.",
           className:
-            'bg-gradient-to-r from-purple-600 to-pink-500 text-white shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:slide-in-from-top-full data-[state=closed]:fade-out-80',
+            'bg-gradient-miami text-white shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:slide-in-from-top-full data-[state=closed]:fade-out-80',
           duration: 5000,
         })
         setForm({ name: '', email: '', subject: '', message: '' })
@@ -48,7 +48,7 @@ export function ContactForm() {
           title: 'Error',
           description: 'Failed to send message. Please try again later.',
           className:
-            'bg-gradient-to-r from-red-600 to-pink-500 text-white shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:slide-in-from-top-full data-[state=closed]:fade-out-80',
+            'bg-gradient-to-r from-red-600 to-[var(--grad-to)] text-white shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:slide-in-from-top-full data-[state=closed]:fade-out-80',
           duration: 5000,
         })
       }
@@ -57,7 +57,7 @@ export function ContactForm() {
         title: 'Error',
         description: 'Failed to send message. Please try again later.',
         className:
-          'bg-gradient-to-r from-red-600 to-pink-500 text-white shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:slide-in-from-top-full data-[state=closed]:fade-out-80',
+          'bg-gradient-to-r from-red-600 to-[var(--grad-to)] text-white shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:slide-in-from-top-full data-[state=closed]:fade-out-80',
         duration: 5000,
       })
     }
@@ -71,8 +71,8 @@ export function ContactForm() {
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
     >
-      <div className="relative overflow-hidden rounded-xl bg-zinc-800/50 backdrop-blur-sm border border-zinc-700/50 p-6 transition-all duration-300 hover:border-purple-500/50">
-        <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-xl blur opacity-25 hover:opacity-100 transition duration-1000 hover:duration-200"></div>
+      <div className="relative overflow-hidden rounded-xl bg-zinc-800/50 backdrop-blur-sm border border-zinc-700/50 p-6 transition-all duration-300 hover:border-primary/50">
+        <div className="absolute -inset-1 bg-gradient-miami rounded-xl blur opacity-25 hover:opacity-100 transition duration-1000 hover:duration-200"></div>
 
         <div className="relative">
           <h3 className="text-2xl font-bold mb-6">Send Me a Message</h3>
@@ -85,7 +85,7 @@ export function ContactForm() {
                 onChange={handleChange}
                 placeholder="Your Name"
                 required
-                className="bg-zinc-900/50 border-zinc-700 focus:border-purple-500 focus:ring-purple-500/20"
+                className="bg-zinc-900/50 border-zinc-700 focus:border-primary focus:ring-primary/20"
               />
             </div>
             <div className="space-y-2">
@@ -96,7 +96,7 @@ export function ContactForm() {
                 onChange={handleChange}
                 placeholder="Your Email"
                 required
-                className="bg-zinc-900/50 border-zinc-700 focus:border-purple-500 focus:ring-purple-500/20"
+                className="bg-zinc-900/50 border-zinc-700 focus:border-primary focus:ring-primary/20"
               />
             </div>
             <div className="space-y-2">
@@ -106,7 +106,7 @@ export function ContactForm() {
                 onChange={handleChange}
                 placeholder="Subject"
                 required
-                className="bg-zinc-900/50 border-zinc-700 focus:border-purple-500 focus:ring-purple-500/20"
+                className="bg-zinc-900/50 border-zinc-700 focus:border-primary focus:ring-primary/20"
               />
             </div>
             <div className="space-y-2">
@@ -117,12 +117,12 @@ export function ContactForm() {
                 placeholder="Your Message"
                 rows={5}
                 required
-                className="bg-zinc-900/50 border-zinc-700 focus:border-purple-500 focus:ring-purple-500/20"
+                className="bg-zinc-900/50 border-zinc-700 focus:border-primary focus:ring-primary/20"
               />
             </div>
             <Button
               type="submit"
-              className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-pink-500 hover:to-purple-500 border-0"
+              className="w-full bg-gradient-miami border-0"
               disabled={isSubmitting}
             >
               {isSubmitting ? (

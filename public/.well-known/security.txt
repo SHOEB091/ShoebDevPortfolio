@@ -1,0 +1,4 @@
+Contact: https://github.com/SHOEB091
+Preferred-Languages: en
+Policy: https://github.com/SHOEB091/ShoebDevPortfolio#security-policy
+Hiring: https://github.com/SHOEB091

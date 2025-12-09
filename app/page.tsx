@@ -1,17 +1,19 @@
-import Link from "next/link"
-import { ArrowRight, Github, Linkedin, Mail, Twitter } from "lucide-react"
+import Link from "next/link";
+import { ArrowRight, Github, Linkedin, Mail, Twitter } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { ProjectCard } from "@/components/project-card"
-import { SkillBadge } from "@/components/skill-badge"
-import { Timeline } from "@/components/timeline"
-import { ContactForm } from "@/components/contact-form"
-import { CreativeHero } from "@/components/creative-hero"
-import { FloatingNav } from "@/components/floating-nav"
-import { MouseFollower } from "@/components/mouse-follower"
-import { ScrollProgress } from "@/components/scroll-progress"
-import { SectionHeading } from "@/components/section-heading"
-import { GlassmorphicCard } from "@/components/glassmorphic-card"
+import { Button } from "@/components/ui/button";
+import { ProjectCard } from "@/components/project-card";
+import { SkillItem } from "@/components/skill-item";
+import { Timeline } from "@/components/timeline";
+import { ContactForm } from "@/components/contact-form";
+import { CreativeHero } from "@/components/creative-hero";
+import GTALanding from "@/components/gta-landing";
+import { FloatingNav } from "@/components/floating-nav";
+import { MouseFollower } from "@/components/mouse-follower";
+import { ScrollProgress } from "@/components/scroll-progress";
+import { SectionHeading } from "@/components/section-heading";
+import { GlassmorphicCard } from "@/components/glassmorphic-card";
+import { CertificateCard } from "@/components/certificate-card";
 
 export default function Portfolio() {
   return (
@@ -20,126 +22,38 @@ export default function Portfolio() {
       <ScrollProgress />
       <FloatingNav />
 
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-          <div className="absolute top-40 right-10 w-72 h-72 bg-yellow-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-          <div className="absolute bottom-20 left-1/3 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
-        </div>
-
-        <div className="container relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <div className="inline-block">
-              <div className="relative px-3 py-1 text-sm font-medium rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-4">
-                <span className="relative z-10">Software Engineer & Creative Developer</span>
-                <span className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500/20 to-pink-500/20 animate-pulse"></span>
-              </div>
-            </div>
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
-              <span className="block">Hi, I'm</span>
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
-                shoeb iqbal
-              </span>
-            </h1>
-            <p className="text-xl text-zinc-400 max-w-[600px]">
-              I craft exceptional digital experiences with code, creativity, and a passion for innovation.
-            </p>
-            <div className="flex flex-wrap gap-4 pt-4">
-              <Button className="relative overflow-hidden group bg-gradient-to-r from-purple-500 to-pink-500 border-0">
-                <span className="relative z-10 flex items-center">
-                  View Projects <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </span>
-                <span className="absolute inset-0 bg-gradient-to-r from-pink-500 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-              </Button>
-              <a href="/ShoebResume.pdf" download className="inline-block">
-                <Button
-                  variant="outline"
-                  className="border-zinc-700 text-zinc-300 hover:text-white hover:border-zinc-500"
-                >
-                  Download Resume
-                </Button>
-              </a>
-            </div>
-            <div className="flex gap-4 pt-4">
-              <Link href="https://github.com/SHOEB091" target="_blank" rel="noopener noreferrer">
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="rounded-full bg-zinc-800/50 hover:bg-zinc-800 text-zinc-400 hover:text-white"
-                >
-                  <Github className="h-5 w-5" />
-                  <span className="sr-only">GitHub</span>
-                </Button>
-              </Link>
-              <Link href="https://www.linkedin.com/in/shoebdev/" target="_blank" rel="noopener noreferrer">
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="rounded-full bg-zinc-800/50 hover:bg-zinc-800 text-zinc-400 hover:text-white"
-                >
-                  <Linkedin className="h-5 w-5" />
-                  <span className="sr-only">LinkedIn</span>
-                </Button>
-              </Link>
-              <Link href="https://x.com/SHOEBIQBAL41507" target="_blank" rel="noopener noreferrer">
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="rounded-full bg-zinc-800/50 hover:bg-zinc-800 text-zinc-400 hover:text-white"
-                >
-                  <Twitter className="h-5 w-5" />
-                  <span className="sr-only">Twitter</span>
-                </Button>
-              </Link>
-              <Link href="mailto:wiqbal091@gmail.com">
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="rounded-full bg-zinc-800/50 hover:bg-zinc-800 text-zinc-400 hover:text-white"
-                >
-                  <Mail className="h-5 w-5" />
-                  <span className="sr-only">Email</span>
-                </Button>
-              </Link>
-            </div>
-          </div>
-          <div className="flex justify-center">
-            <CreativeHero />
-          </div>
-        </div>
-
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 rounded-full border-2 border-white/20 flex justify-center items-start p-1">
-            <div className="w-1.5 h-1.5 rounded-full bg-white/60 animate-pulse"></div>
-          </div>
-        </div>
-      </section>
+      {/* GTA-style Landing Section */}
+      <GTALanding />
 
       {/* About Section */}
-      <section id="about" className="py-32 relative">
+      <section id="about" className="py-32 relative bg-black">
         <div className="absolute inset-0 z-0">
-          <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
-          <div className="absolute bottom-1/3 left-1/3 w-64 h-64 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+          <div className="absolute top-1/4 right-1/4 w-64 h-64 bg-[var(--miami-aqua)] rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+          <div className="absolute bottom-1/3 left-1/3 w-64 h-64 bg-[var(--miami-pink)] rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
         </div>
 
         <div className="container relative z-10">
-          <SectionHeading title="About Me" subtitle="My background and journey" />
+          <SectionHeading
+            title="About Me"
+            subtitle="My background and journey"
+          />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-16">
             <div className="relative">
-              <div className="absolute -inset-4 rounded-xl bg-gradient-to-r from-purple-500/20 to-pink-500/20 blur-xl opacity-70"></div>
+              <div className="absolute -inset-4 rounded-xl bg-gradient-miami blur-xl opacity-70"></div>
               <div className="relative aspect-square rounded-xl overflow-hidden border border-zinc-800">
                 <img
-                  src="/shoebImage.png"
-                  alt="shoeb iqbal"
+                  src="/ShoebImage2.jpeg"
+                  alt="Shoeb Iqbal"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 w-full p-6">
                   <div className="flex items-center gap-2">
                     <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
-                    <span className="text-sm font-medium">Available for work</span>
+                    <span className="text-sm font-medium">
+                      Available for work
+                    </span>
                   </div>
                 </div>
               </div>
@@ -148,17 +62,40 @@ export default function Portfolio() {
             <div className="space-y-6">
               <GlassmorphicCard>
                 <p className="text-lg text-zinc-300">
-                  I'm a passionate software engineer with experience building web applications and digital products. I
-                  specialize in frontend development with React and Next.js, but I'm also comfortable working with
-                  backend technologies.
+                  I'm a passionate software engineer with hands-on experience
+                  building scalable systems, modern web applications, and
+                  AI-powered products. I specialize in Cloud & Blockchain and
+                  Expeience in Software Development, and I also work comfortably
+                  with backend technologies like Node.js, Python, Java, Spring
+                  Boot, and cloud & DevOps.
                 </p>
+
                 <p className="text-lg text-zinc-300 mt-4">
-                  My journey in tech started with a strong foundation in software development. I've worked with various
-                  companies to create intuitive, performant, and accessible digital experiences.
+                  Over the past few years, I've contributed to projects across
+                  multiple domains—real-time communication, microservices,
+                  DevOps, Generative AI, and data-driven platforms. I enjoy
+                  solving complex problems, designing clean architecture, and
+                  shipping features that are reliable, performant, and
+                  meaningful to users.
                 </p>
+
                 <p className="text-lg text-zinc-300 mt-4">
-                  When I'm not coding, you can find me exploring new technologies, contributing to open-source projects,
-                  and staying up-to-date with the latest industry trends.
+                  I’m an enthusiastic learner with fast execution skills, known
+                  for quickly understanding new technologies and implementing
+                  them in real-world projects. I also hold industry-recognized
+                  certifications, including
+                  <span className="font-semibold text-white">
+                    OCI Generative AI
+                  </span>
+                  ,
+                  <span className="font-semibold text-white">
+                    Oracle AI Foundations
+                  </span>
+                  , and
+                  <span className="font-semibold text-white">
+                    AWS Cloud Essentials
+                  </span>
+                  .
                 </p>
 
                 <div className="grid grid-cols-2 gap-4 mt-8">
@@ -176,13 +113,17 @@ export default function Portfolio() {
                   </div>
                   <div className="space-y-1">
                     <div className="text-sm text-zinc-500">Availability</div>
-                    <div className="font-medium text-green-500">Open to opportunities</div>
+                    <div className="font-medium text-green-500">
+                      Open to opportunities
+                    </div>
                   </div>
                 </div>
 
                 <div className="mt-8">
                   <a href="/ShoebResume.pdf" download>
-                    <Button className="bg-zinc-800 hover:bg-zinc-700 text-white">Download Resume</Button>
+                    <Button className="bg-zinc-800 hover:bg-zinc-700 text-white">
+                      Download Resume
+                    </Button>
                   </a>
                 </div>
               </GlassmorphicCard>
@@ -192,68 +133,281 @@ export default function Portfolio() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-32 relative">
+      <section id="skills" className="py-32 relative bg-black">
         <div className="absolute inset-0 z-0">
-          <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+          <div className="absolute top-1/3 left-1/4 w-64 h-64 bg-[var(--miami-sky)] rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-64 h-64 bg-[var(--miami-aqua)] rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
         </div>
 
         <div className="container relative z-10">
-          <SectionHeading title="My Skills" subtitle="Technologies I work with" />
+          <SectionHeading
+            title="My Skills"
+            subtitle="Technologies I work with"
+          />
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-16">
-            <SkillBadge name="JavaScript" level={90} />
-            <SkillBadge name="TypeScript" level={85} />
-            <SkillBadge name="React" level={85} />
-            <SkillBadge name="Next.js" level={80} />
-            <SkillBadge name="Node.js" level={85} />
-            <SkillBadge name="HTML/CSS" level={95} />
-            <SkillBadge name="Tailwind CSS" level={90} />
-            <SkillBadge name="GraphQL" level={75} />
-            <SkillBadge name="PostgreSQL" level={70} />
-            <SkillBadge name="AWS" level={70} />
-            <SkillBadge name="Docker" level={75} />
-            <SkillBadge name="Git" level={85} />
-            <SkillBadge name="Kubernetese" level={85} />
-            <SkillBadge name="Android Development" level={61} />
-            <SkillBadge name="C" level={70} />
-            <SkillBadge name="C#" level={75} />
-            <SkillBadge name="Python" level={60} />
-            <SkillBadge name="Java" level={80} />
-            <SkillBadge name="OOP" level={80} />
-            <SkillBadge name="CI/CD" level={68} />
-            <SkillBadge name="DevOps" level={70} />
-            <SkillBadge name="Testing" level={70} />
-            <SkillBadge name="Security" level={82} />
+          {/* Grouped skill categories with icons */}
+          <div className="mt-16 space-y-12">
+            {/* Java Full Stack */}
+            <div>
+              <h3 className="text-2xl font-semibold mb-6">Java Full Stack</h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <SkillItem
+                  name="Java"
+                  level={85}
+                  icon={<span className="text-2xl">☕</span>}
+                />
+                <SkillItem
+                  name="Spring Boot"
+                  level={80}
+                  icon={<span className="text-2xl">🌱</span>}
+                />
+                <SkillItem
+                  name="Hibernate/JPA"
+                  level={75}
+                  icon={<span className="text-2xl">🗃️</span>}
+                />
+                <SkillItem
+                  name="REST APIs"
+                  level={85}
+                  icon={<span className="text-2xl">🔌</span>}
+                />
+                <SkillItem
+                  name="Maven/Gradle"
+                  level={78}
+                  icon={<span className="text-2xl">🛠️</span>}
+                />
+              </div>
+            </div>
 
-            
+            {/* MERN Stack */}
+            <div>
+              <h3 className="text-2xl font-semibold mb-6">MERN Stack</h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <SkillItem
+                  name="MongoDB"
+                  level={80}
+                  icon={<span className="text-2xl">🍃</span>}
+                />
+                <SkillItem
+                  name="Express.js"
+                  level={78}
+                  icon={<span className="text-2xl">🚂</span>}
+                />
+                <SkillItem
+                  name="React"
+                  level={88}
+                  icon={<span className="text-2xl">⚛️</span>}
+                />
+                <SkillItem
+                  name="Node.js"
+                  level={85}
+                  icon={<span className="text-2xl">🟢</span>}
+                />
+                <SkillItem
+                  name="TypeScript"
+                  level={82}
+                  icon={<span className="text-2xl">TS</span>}
+                />
+                <SkillItem
+                  name="Next.js"
+                  level={82}
+                  icon={<span className="text-2xl">N</span>}
+                />
+              </div>
+            </div>
+
+            {/* Python Data + AI */}
+            <div>
+              <h3 className="text-2xl font-semibold mb-6">Python Data & AI</h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <SkillItem
+                  name="Python"
+                  level={80}
+                  icon={<span className="text-2xl">🐍</span>}
+                />
+                <SkillItem
+                  name="Pandas"
+                  level={83}
+                  icon={<span className="text-2xl">📊</span>}
+                />
+                <SkillItem
+                  name="NumPy"
+                  level={80}
+                  icon={<span className="text-2xl">➗</span>}
+                />
+                <SkillItem
+                  name="scikit-learn"
+                  level={78}
+                  icon={<span className="text-2xl">🤖</span>}
+                />
+                <SkillItem
+                  name="TensorFlow"
+                  level={70}
+                  icon={<span className="text-2xl">🧠</span>}
+                />
+                <SkillItem
+                  name="LangChain / RAG"
+                  level={72}
+                  icon={<span className="text-2xl">🗂️</span>}
+                />
+              </div>
+            </div>
+
+            {/* System Design */}
+            <div>
+              <h3 className="text-2xl font-semibold mb-6">System Design</h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <SkillItem
+                  name="Monolithic Architecture"
+                  level={74}
+                  icon={<span className="text-2xl">🏗️</span>}
+                />
+                <SkillItem
+                  name="Microservices"
+                  level={78}
+                  icon={<span className="text-2xl">🧩</span>}
+                />
+                <SkillItem
+                  name="Distributed Systems"
+                  level={72}
+                  icon={<span className="text-2xl">🌐</span>}
+                />
+                <SkillItem
+                  name="Caching"
+                  level={75}
+                  icon={<span className="text-2xl">⚡</span>}
+                />
+                <SkillItem
+                  name="Message Queues"
+                  level={70}
+                  icon={<span className="text-2xl">📨</span>}
+                />
+                <SkillItem
+                  name="CI/CD"
+                  level={72}
+                  icon={<span className="text-2xl">🚀</span>}
+                />
+              </div>
+            </div>
+
+            {/* DevOps */}
+            <div>
+              <h3 className="text-2xl font-semibold mb-6">DevOps</h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <SkillItem
+                  name="Docker"
+                  level={85}
+                  icon={<span className="text-2xl">🐳</span>}
+                />
+                <SkillItem
+                  name="Kubernetes"
+                  level={70}
+                  icon={<span className="text-2xl">☸️</span>}
+                />
+                <SkillItem
+                  name="GitHub Actions"
+                  level={78}
+                  icon={<span className="text-2xl">⚙️</span>}
+                />
+                <SkillItem
+                  name="AWS"
+                  level={72}
+                  icon={<span className="text-2xl">☁️</span>}
+                />
+                <SkillItem
+                  name="Terraform"
+                  level={70}
+                  icon={<span className="text-2xl">🏗️</span>}
+                />
+                <SkillItem
+                  name="Nginx"
+                  level={68}
+                  icon={<span className="text-2xl">🧭</span>}
+                />
+                <SkillItem
+                  name="Linux"
+                  level={80}
+                  icon={<span className="text-2xl">🐧</span>}
+                />
+                <SkillItem
+                  name="Grafana"
+                  level={68}
+                  icon={<span className="text-2xl">📈</span>}
+                />
+              </div>
+            </div>
+
+            {/* Databases */}
+            <div>
+              <h3 className="text-2xl font-semibold mb-6">Databases</h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <SkillItem
+                  name="PostgreSQL"
+                  level={75}
+                  icon={<span className="text-2xl">🐘</span>}
+                />
+                <SkillItem
+                  name="MySQL"
+                  level={78}
+                  icon={<span className="text-2xl">🟦</span>}
+                />
+                <SkillItem
+                  name="MongoDB"
+                  level={80}
+                  icon={<span className="text-2xl">🍃</span>}
+                />
+                <SkillItem
+                  name="Redis"
+                  level={70}
+                  icon={<span className="text-2xl">🟥</span>}
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-32 relative">
+      <section id="projects" className="py-32 relative bg-black">
         <div className="absolute inset-0 z-0">
-          <div className="absolute top-1/4 left-1/3 w-64 h-64 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
-          <div className="absolute bottom-1/3 right-1/4 w-64 h-64 bg-yellow-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+          <div className="absolute top-1/4 left-1/3 w-64 h-64 bg-[var(--miami-pink)] rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+          <div className="absolute bottom-1/3 right-1/4 w-64 h-64 bg-[var(--miami-sun)] rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
         </div>
 
         <div className="container relative z-10">
-          <SectionHeading title="Featured Projects" subtitle="Some of my recent work" />
+          <SectionHeading
+            title="Featured Projects"
+            subtitle="Some of my recent work"
+          />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
             <ProjectCard
               title="Internboot Assessment Platform"
               description="A full-stack assessment management system built with ASP.NET Core, Razorpay, and MySQL. This enterprise-grade platform automates technical evaluations with secure test administration, real-time scoring, and detailed analytics. Features include payment processing, certificate generation, and anti-cheating mechanisms. Implemented CI/CD with Jenkins and Docker, reducing recruitment costs by 45% while supporting 5,000+ concurrent users with 99.9% uptime."
-              tags={["ASP.Net", "JavaScript", "AWS", "Razorpay", "CI/CD", "Docker", "Html/CSS" ]}
+              tags={[
+                "ASP.Net",
+                "JavaScript",
+                "AWS",
+                "Razorpay",
+                "CI/CD",
+                "Docker",
+                "Html/CSS",
+              ]}
               image="/Internboot.png"
               demoUrl="https://test.internboot.com"
-              repoUrl="https://github.com/SHOEB091/"
+              repoUrl="https://github.com/SHOEB091/OnlineAssessmnetPlatform.git"
             />
             <ProjectCard
               title="AI Interview Coach"
               description="An AI-powered interview preparation platform that provides real-time feedback and personalized coaching using advanced language models. Features include mock interviews, instant scoring, and tailored improvement plans. Built with Next.js, OpenAI API, and MongoDB."
-              tags={["Next.js", "OpenAI API", "Node.js", "PostgreSQL", "React.JS", "Drizzle ORM"]}
+              tags={[
+                "Next.js",
+                "OpenAI API",
+                "Node.js",
+                "PostgreSQL",
+                "React.JS",
+                "Drizzle ORM",
+              ]}
               image="/AiInterviewCoach.png"
               demoUrl="https://ai-interview-coach-kappa.vercel.app"
               repoUrl="https://github.com/SHOEB091/AI_InterviewCoach.git"
@@ -264,7 +418,7 @@ export default function Portfolio() {
               tags={["Python", "Flet", "Rest API", "SqlLite"]}
               image="/HRMS.png"
               demoUrl="https://example.com"
-              repoUrl="https://github.com/SHOEB091/"
+              repoUrl="https://github.com/SHOEB091/Python-Flet-MuliPatformApplicationHRMS.git"
             />
             <ProjectCard
               title="Lingua Cloud Sphere"
@@ -274,7 +428,14 @@ costs by 30%.
 uptime.
 • Dockerized services for scalable deployment and maintenance efficiency.
 • Adopted Agile with Trello boards, resulting in a 20% improvement in individual task efficiency."
-              tags={["React.jS", "JavaScript", "AWS", "Lambda Serverless", "Python", "API Gateway"]}
+              tags={[
+                "React.jS",
+                "JavaScript",
+                "AWS",
+                "Lambda Serverless",
+                "Python",
+                "API Gateway",
+              ]}
               image="/LinguaCloudShpere.png"
               demoUrl="http://lcsfrontendbucket.s3-website-us-east-1.amazonaws.com"
               repoUrl="https://github.com/SHOEB091/Lingua_Cloud_Sphere.git"
@@ -282,7 +443,16 @@ uptime.
             <ProjectCard
               title="Full Stack ChatPDF "
               description="A application that solve the Information fetching form the ChatPDF"
-              tags={["NEXT.js", "GenAI", "TypeScript", "AWS", "RAG", "LangChain", "Pinecone", "Drizzle ORM"]}
+              tags={[
+                "NEXT.js",
+                "GenAI",
+                "TypeScript",
+                "AWS",
+                "RAG",
+                "LangChain",
+                "Pinecone",
+                "Drizzle ORM",
+              ]}
               image="/ChatPdf.png"
               demoUrl="https://sichatpdf.vercel.app"
               repoUrl="https://github.com/SHOEB091/AI-ChatPDF.git"
@@ -290,7 +460,13 @@ uptime.
             <ProjectCard
               title="URL Shortener"
               description="This is the project of System Desing which shows the internal working of URL shortening "
-              tags={["Node.js", "JWT Authentication ", "EJS", "Docker", "MongoDB"]}
+              tags={[
+                "Node.js",
+                "JWT Authentication ",
+                "EJS",
+                "Docker",
+                "MongoDB",
+              ]}
               image="/URLShortener.png"
               demoUrl="https://shiny-erin-dituniversity-be8a24e5.koyeb.app/login"
               repoUrl="https://github.com/SHOEB091/url-shortening.git"
@@ -299,15 +475,66 @@ uptime.
         </div>
       </section>
 
-      {/* Experience Section */}
-      <section id="experience" className="py-32 relative">
+      {/* Certificates Section */}
+      <section id="certificates" className="py-32 relative bg-black">
         <div className="absolute inset-0 z-0">
-          <div className="absolute top-1/3 right-1/3 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
-          <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+          <div className="absolute top-1/3 left-1/5 w-64 h-64 bg-[var(--miami-sky)] rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+          <div className="absolute bottom-1/3 right-1/5 w-64 h-64 bg-[var(--miami-sun)] rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
         </div>
 
         <div className="container relative z-10">
-          <SectionHeading title="Work Experience" subtitle="My professional journey" />
+          <SectionHeading
+            title="Certificates"
+            subtitle="Courses and achievements"
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+            <CertificateCard
+              title="Oracle Cloud Infrastructure AI Foundations"
+              issuer="Oracle"
+              href="https://drive.google.com/file/d/1mHuJfi_9otsLdZZzXLVs0ydUXwKNwXpQ/view?usp=sharing"
+            />
+            <CertificateCard
+              title="Cryptography: Hash and Integrity Protections"
+              issuer="Coursera"
+              href="https://drive.google.com/file/d/1H9eQCb82VHNqo01g42g7c0M-PPepq3ct/view?usp=sharing"
+            />
+            <CertificateCard
+              title="Introduction to Software Engineering"
+              issuer="IBM"
+              href="https://drive.google.com/file/d/1HQpQm87h7-NzaHp1T7eZ-KQnyiD47esh/view?usp=sharing"
+            />
+            <CertificateCard
+              title="AWS Cloud Technical Essentials"
+              issuer="Amazon Web Services"
+              href="https://drive.google.com/file/d/1RX5utmoyA2X-FRqqVe2mEkv2LMf4hVmW/view?usp=sharing"
+            />
+            <CertificateCard
+              title="Oracle Cloud Infrastructure Generative AI"
+              issuer="Oracle"
+              href="https://drive.google.com/file/d/1zcv9T0yWhq_A16foRwaEviUsXUo-Klz7/view?usp=sharing"
+            />
+            <CertificateCard
+              title="Deloitte Cyber Job Simulation"
+              issuer="Deloitte"
+              href="https://drive.google.com/file/d/1-FDWipvuSC4xtmVEX7-JEtVqeNAS6D2W/view?usp=sharing"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Experience Section */}
+      <section id="experience" className="py-32 relative bg-black">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute top-1/3 right-1/3 w-64 h-64 bg-[var(--miami-aqua)] rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+          <div className="absolute bottom-1/4 left-1/4 w-64 h-64 bg-[var(--miami-sky)] rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+        </div>
+
+        <div className="container relative z-10">
+          <SectionHeading
+            title="Work Experience"
+            subtitle="My professional journey"
+          />
 
           <div className="mt-16">
             <Timeline />
@@ -316,10 +543,10 @@ uptime.
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-32 relative">
+      <section id="contact" className="py-32 relative bg-black">
         <div className="absolute inset-0 z-0">
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
-          <div className="absolute bottom-1/3 right-1/3 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-[var(--miami-pink)] rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+          <div className="absolute bottom-1/3 right-1/3 w-64 h-64 bg-[var(--miami-aqua)] rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
         </div>
 
         <div className="container relative z-10">
@@ -331,7 +558,7 @@ uptime.
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center">
-                    <Mail className="h-5 w-5 text-purple-400" />
+                    <Mail className="h-5 w-5 text-accent" />
                   </div>
                   <div>
                     <div className="text-sm text-zinc-500">Email</div>
@@ -340,16 +567,18 @@ uptime.
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center">
-                    <Linkedin className="h-5 w-5 text-purple-400" />
+                    <Linkedin className="h-5 w-5 text-accent" />
                   </div>
                   <div>
                     <div className="text-sm text-zinc-500">LinkedIn</div>
-                    <div className="font-medium">https://www.linkedin.com/in/shoebdev/</div>
+                    <div className="font-medium">
+                      https://www.linkedin.com/in/shoebdev/
+                    </div>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full bg-zinc-800 flex items-center justify-center">
-                    <Github className="h-5 w-5 text-purple-400" />
+                    <Github className="h-5 w-5 text-accent" />
                   </div>
                   <div>
                     <div className="text-sm text-zinc-500">GitHub</div>
@@ -362,7 +591,9 @@ uptime.
                 <h4 className="text-lg font-medium mb-4">Current Status</h4>
                 <div className="flex items-center gap-2">
                   <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
-                  <span>Available for freelance work and full-time opportunities</span>
+                  <span>
+                    Available for freelance work and full-time opportunities
+                  </span>
                 </div>
               </div>
             </GlassmorphicCard>
@@ -377,7 +608,7 @@ uptime.
         <div className="container flex flex-col md:flex-row justify-between items-center gap-6">
           <div>
             <Link href="/" className="font-bold text-xl">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">shoeb</span>
+              <span className="text-gradient-miami">shoeb</span>
               <span className="text-white">Iqbal</span>
             </Link>
             <p className="text-sm text-zinc-500 mt-2">
@@ -385,7 +616,11 @@ uptime.
             </p>
           </div>
           <div className="flex gap-4">
-            <Link href="https://github.com/SHOEB091" target="_blank" rel="noopener noreferrer">
+            <Link
+              href="https://github.com/SHOEB091"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button
                 variant="ghost"
                 size="icon"
@@ -395,7 +630,11 @@ uptime.
                 <span className="sr-only">GitHub</span>
               </Button>
             </Link>
-            <Link href="https://www.linkedin.com/in/shoebdev/" target="_blank" rel="noopener noreferrer">
+            <Link
+              href="https://www.linkedin.com/in/shoebdev/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button
                 variant="ghost"
                 size="icon"
@@ -405,7 +644,11 @@ uptime.
                 <span className="sr-only">LinkedIn</span>
               </Button>
             </Link>
-            <Link href="https://x.com/SHOEBIQBAL41507" target="_blank" rel="noopener noreferrer">
+            <Link
+              href="https://x.com/SHOEBIQBAL41507"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button
                 variant="ghost"
                 size="icon"
@@ -429,5 +672,5 @@ uptime.
         </div>
       </footer>
     </div>
-  )
+  );
 }

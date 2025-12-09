@@ -2,21 +2,27 @@
 
 import { motion } from "framer-motion"
 import { useMobile } from "@/hooks/use-mobile"
+import { title } from "process"
 
 const experiences = [
   {
-    title: "Software Engineer Trainee",
+    title: "Software Developer",
+    company: "Mohjay Infotech Pvt Ltd",
+    period: "AUG 2025 - Present"
+  },
+  {
+    title: "Software Developer",
     company: "Bridge Group of Solutions.",
     period: "JAN 2025 - JULY 2025",
-    description:
-      "Build Scalable projects and work with team in building a SaaS platform. Implemented new features, improved performance, and mentored Interns. Worked on various Tech Stack like ASP.NET , Android Development , MERN STACK from optimization to Scalability , Security and Depoloymnet covering every single edge case",
+    //description:
+      //"Build Scalable projects and work with team in building a SaaS platform. Implemented new features, improved performance, and mentored Interns. Worked on various Tech Stack like ASP.NET , Android Development , MERN STACK from optimization to Scalability , Security and Depoloymnet covering every single edge case",
   },
   {
     title: "Fullstack Developer",
     company: "Koders",
     period: "2024 May - 2024 July",
-    description:
-      "Developed responsive Fullstack web applications using React , Nodejs and use Fullstack framework like Next.js. Collaborated with designers to build deliver high-quality products.",
+    // description:
+    //   "Developed responsive Fullstack web applications using React , Nodejs and use Fullstack framework like Next.js. Collaborated with designers to build deliver high-quality products.",
   },
   
 ]
@@ -44,15 +50,15 @@ export function Timeline() {
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
           >
-            <div className="relative overflow-hidden rounded-xl bg-zinc-800/50 backdrop-blur-sm border border-zinc-700/50 p-6 transition-all duration-300 hover:border-purple-500/50">
-              <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-xl blur opacity-25 hover:opacity-100 transition duration-1000 hover:duration-200"></div>
+            <div className="relative overflow-hidden rounded-xl bg-zinc-800/50 backdrop-blur-sm border border-zinc-700/50 p-6 transition-all duration-300 hover:border-primary/50">
+              <div className="absolute -inset-1 bg-gradient-miami rounded-xl blur opacity-25 hover:opacity-100 transition duration-1000 hover:duration-200"></div>
 
               <div className="relative">
                 <h3 className="text-xl font-bold">{experience.title}</h3>
                 <div className="text-zinc-400 mb-4">
                   {experience.company} | {experience.period}
                 </div>
-                <p className="text-zinc-300">{experience.description}</p>
+                {/* <p className="text-zinc-300">{experience.description}</p> */}
               </div>
             </div>
           </motion.div>
@@ -60,7 +66,7 @@ export function Timeline() {
           {!isMobile && (
             <div className="absolute left-1/2 -translate-x-1/2 flex items-center justify-center">
               <motion.div
-                className="w-6 h-6 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 z-10 flex items-center justify-center"
+                className="w-6 h-6 rounded-full bg-gradient-miami z-10 flex items-center justify-center"
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
                 transition={{ duration: 0.3 }}

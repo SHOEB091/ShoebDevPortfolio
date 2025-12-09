@@ -2,50 +2,94 @@
 @tailwind components;
 @tailwind utilities;
 
+/* GTA VI Pricedown font (copied from GTAVI-main) */
+@font-face {
+  font-family: "pricedown";
+  src: url("/pricedown.otf") format("opentype");
+  font-display: swap;
+}
+
+/* Scoped helper so only the landing uses this font by default */
+.gta-pricedown {
+  font-family: "pricedown", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    /* Miami / Vice City palette (light) */
+    --background: 186 52% 97%;      /* light aqua wash */
+    --foreground: 203 72% 7%;       /* deep teal text */
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --card-foreground: 203 72% 7%;
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 240 5.9% 10%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 240 4.8% 95.9%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 84.2% 60.2%;
+    --popover-foreground: 203 72% 7%;
+    /* Shift core tokens to orange/yellow */
+    --primary: 30 100% 55%;         /* orange */
+    --primary-foreground: 0 0% 10%;
+    --secondary: 50 100% 60%;       /* yellow */
+    --secondary-foreground: 0 0% 10%;
+    --muted: 188 45% 92%;
+    --muted-foreground: 197 24% 35%;
+    --accent: 50 100% 60%;          /* use yellow as accent */
+    --accent-foreground: 0 0% 10%;
+    --destructive: 350 89% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 240 5.9% 10%;
+    --border: 190 35% 80%;
+    --input: 190 35% 80%;
+    --ring: 182 100% 42%;
     --radius: 0.5rem;
+
+    /* Extra brand tokens */
+    --miami-aqua: #00d0d6;
+    --miami-coral: #ff7a59;
+    --miami-pink: #ff4fa3;
+    --miami-sky: #6fd3ff;
+    --miami-sun: #ffd166;
+    --miami-palm: #22c55e;
+
+    /* Vice orange/yellow RGBA tokens */
+    --vice-orange-rgba: rgba(255, 122, 89, 1);   /* coral/orange */
+    --vice-yellow-rgba: rgba(255, 209, 102, 1);  /* sun yellow */
+
+    /* Gradients tuned to landing orange/yellow */
+    --grad-from: var(--vice-orange-rgba);
+    --grad-via: var(--vice-yellow-rgba);
+    --grad-to: var(--vice-yellow-rgba);
   }
 
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
+    /* Miami palette (dark) */
+    --background: 203 73% 6%;       /* deep night teal */
+    --foreground: 186 45% 96%;
+    --card: 204 60% 9%;
+    --card-foreground: 186 45% 96%;
+    --popover: 204 60% 9%;
+    --popover-foreground: 186 45% 96%;
+    --primary: 30 100% 55%;
+    --primary-foreground: 203 73% 6%;
+    --secondary: 50 100% 60%;
+    --secondary-foreground: 16 100% 12%;
+    --muted: 201 32% 16%;
+    --muted-foreground: 196 21% 70%;
+    --accent: 50 100% 60%;
+    --accent-foreground: 203 73% 6%;
+    --destructive: 350 89% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    --border: 202 35% 25%;
+    --input: 202 35% 25%;
+    --ring: 184 100% 48%;
+
+    /* Brand tokens (dark stay same) */
+    --miami-aqua: #00d0d6;
+    --miami-coral: #ff7a59;
+    --miami-pink: #ff4fa3;
+    --miami-sky: #6fd3ff;
+    --miami-sun: #ffd166;
+    --miami-palm: #22c55e;
+
+    --grad-from: var(--vice-orange-rgba);
+    --grad-via: var(--vice-yellow-rgba);
+    --grad-to: var(--vice-yellow-rgba);
   }
 }
 
@@ -59,6 +103,18 @@
 }
 
 @layer utilities {
+  .text-gradient-miami {
+    background-image: linear-gradient(to right, var(--grad-from), var(--grad-to));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .bg-gradient-miami {
+    background-image: linear-gradient(to right, var(--grad-from), var(--grad-to));
+  }
+  .bg-gradient-vice {
+    background-image: linear-gradient(90deg, var(--vice-orange-rgba) 0%, var(--vice-yellow-rgba) 100%);
+  }
   .animation-delay-2000 {
     animation-delay: 2s;
   }
