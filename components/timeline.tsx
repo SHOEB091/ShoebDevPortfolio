@@ -18,7 +18,7 @@ const experiences = [
       //"Build Scalable projects and work with team in building a SaaS platform. Implemented new features, improved performance, and mentored Interns. Worked on various Tech Stack like ASP.NET , Android Development , MERN STACK from optimization to Scalability , Security and Depoloymnet covering every single edge case",
   },
   {
-    title: "Fullstack Developer",
+    title: "Backend Developer Intern",
     company: "Koders",
     period: "2024 May - 2024 July",
     // description:
