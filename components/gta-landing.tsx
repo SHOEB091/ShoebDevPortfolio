@@ -98,6 +98,32 @@ export function GTALanding() {
       ease: "Expo.easeInOut",
     });
 
+    // Auto-fit the headline on phones by measuring after animations
+    const fitTextMobile = () => {
+      const wNow = window.innerWidth;
+      const isPhone = wNow < 768;
+      const textEl = document.querySelector<HTMLElement>(".gta-text");
+      if (!textEl) return;
+      if (!isPhone) {
+        gsap.to(textEl, { scale: 1, duration: 0.2 });
+        return;
+      }
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      const rect = textEl.getBoundingClientRect();
+      const scaleForWidth = (vw * 0.88) / rect.width;
+      const scaleForHeight = (vh * 0.35) / rect.height; // tighter height budget for perfect fit
+      const target = Math.max(0.28, Math.min(0.65, Math.min(scaleForWidth, scaleForHeight)));
+      gsap.to(textEl, { scale: target, duration: 0.3, ease: "Expo.easeOut" });
+
+      // Re-center horizontally after scaling
+      const after = textEl.getBoundingClientRect();
+      const centerX = after.left + after.width / 2;
+      const dx = vw / 2 - centerX;
+      if (Math.abs(dx) > 1) gsap.set(textEl, { x: `+=${dx}` });
+    };
+    gsap.delayedCall(1, fitTextMobile);
+
     const main = document.querySelector<HTMLElement>(".gta-main");
     const handler = (e: MouseEvent) => {
       const xMove = (e.clientX / window.innerWidth - 0.5) * 40;
@@ -106,7 +132,12 @@ export function GTALanding() {
       gsap.to(".gta-bg", { x: xMove * 1.7 });
     };
     main?.addEventListener("mousemove", handler);
-    return () => main?.removeEventListener("mousemove", handler);
+    const onResize = () => fitTextMobile();
+    window.addEventListener("resize", onResize);
+    return () => {
+      main?.removeEventListener("mousemove", handler);
+      window.removeEventListener("resize", onResize);
+    };
   }, [showContent]);
 
   // Close on Escape and toggle body scroll lock when menu is open
@@ -201,6 +232,22 @@ export function GTALanding() {
                 className="absolute inset-0 bg-black/70 backdrop-blur-sm"
                 onClick={() => setNavOpen(false)}
               />
+              {/* Close (X) button on overlay */}
+              <button
+                aria-label="Close menu"
+                onClick={() => setNavOpen(false)}
+                className="absolute top-6 right-6 z-[70] w-10 h-10 flex items-center justify-center"
+              >
+                <div className="relative w-6 h-6">
+                  <div className="absolute inset-0 rotate-45">
+                    <div className="absolute top-1/2 -translate-y-1/2 w-6 h-[3px] bg-white" />
+                  </div>
+                  <div className="absolute inset-0 -rotate-45">
+                    <div className="absolute top-1/2 -translate-y-1/2 w-6 h-[3px] bg-white" />
+                  </div>
+                </div>
+              </button>
+
               <nav className="relative z-[1] w-full h-full flex">
                 <div className="mt-28 ml-10 md:ml-16 flex flex-col gap-6 text-white">
                   <a href="#about" onClick={() => setNavOpen(false)} className="text-4xl md:text-6xl hover:text-[var(--miami-sun)]">About</a>
